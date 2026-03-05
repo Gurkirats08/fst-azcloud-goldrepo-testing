@@ -1,0 +1,74 @@
+,,,
+module,category,notes,Status
+managementgroup,governance,Create management groups,Ready
+subscription,governance,Create/associate subscriptions,Ready
+resourcegroup,foundation,Create resource groups for workloads,Ready
+rbac,identity,Assign baseline roles,Ready
+userassignedidentity,identity,Create managed identities,Ready
+virtualnetwork,networking,Create VNets and address spaces,Ready
+subnet,networking,Create subnets,Ready
+networksecuritygroup,networking,Attach NSGs to subnets,Ready
+routetable,networking,Create route tables,Ready
+vnetpeering,networking,Create VNet peerings,Ready
+vnetgateway,networking,Create VPN/ER gateways,
+vpnpublicip,networking,Public IPs for VPN gateway,
+vpnconnections,networking,Create VPN connections,
+publicip,networking,General public IPs,Ready
+privatednszone,networking,Private DNS zones,
+privatedns-a-record,networking,Private DNS A records,
+privatednszonevirtualnetworklink,networking,Link DNS zones to VNets,
+privateendpoint,networking,Private endpoints for services,
+ddos,networking,Enable DDoS protection,Ready
+azurefirewall,networking,Deploy Azure Firewall,
+firewallPolicy,networking,Configure firewall policy,
+bastionhost,networking,Deploy Bastion host,Ready
+appgateway,networking,Deploy Application Gateway,
+networkwatcher,networking,Network Watcher,Ready
+vnetflowlogs,networking,Vnet flow logs,
+localnetworkgateway,networking,Local network gateway,
+eventhub,messaging,Event Hubs,
+eventhubnamespace,messaging,Event Hubs namespace,
+diagnosticlogs,observability,Platform diagnostics settings,
+loganalytics,observability,Log Analytics workspace,Ready
+datacollectionendpoint,observability,Data collection endpoint,
+datacollectionrule,observability,Data collection rule,
+customalerts,observability,Alerting configuration,
+sentinel,observability,Enable Microsoft Sentinel,
+applicationinsights,observability,Application Insights,
+keyvault,security,Key Vault baseline,Ready
+keyvaultkey,security,Keys for encryption,Ready
+diskencryptionset,security,Disk encryption set,
+backupvault,security,Backup vault,Ready
+recoveryservicevault,security,Recovery Services vault,Ready
+storagebackuppolicy,security,Storage backup policy,
+diskbackuppolicy,security,Disk backup policy,
+vmbackuppolicy,security,VM backup policy,
+storageaccount,data,Storage accounts,Ready
+serviceplan,app,App Service plan,
+windowswebapp,app,Windows App Service,
+linuxvm,compute,Virtual machines (Linux),
+windowsvm,compute,Virtual machines (Windows),
+vmextension,compute,VM extensions,
+datadisk,compute,Managed disks,
+datadiskattachment,compute,Attach disks to VMs,
+rediscache,data,Azure Cache for Redis,
+cosmosdb,data,Cosmos DB account,
+cosmodbaccount,data,Cosmos DB account (alt module),
+cosmodbsqldatabase,data,Cosmos DB SQL database,
+cosmosdbsqlcontainer,data,Cosmos DB SQL container,
+mssqlserver,data,SQL Server,
+sqlpaas,data,Azure SQL database,
+postgresqlFlexible,data,PostgreSQL flexible server,
+postgresqlDatabase,data,PostgreSQL database,
+mysqlFlexibleServer,data,MySQL flexible server,
+mysqlFlexibleDatabase,data,MySQL database,
+openai,ai,Azure OpenAI,
+cognitivesearch,ai,Azure AI Search,
+machinelearning,ai,Machine Learning workspace,
+datafactory,data,Data Factory,
+databricksworkspace,data,Databricks workspace,
+synapseworkspace,data,Synapse workspace,
+automationAccount,ops,Automation account,
+updatemanager,ops,Update Manager,
+hub,networking,Hub networking components,
+resourcelock,governance,Resource locks,Ready
