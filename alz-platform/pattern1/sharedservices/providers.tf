@@ -34,7 +34,7 @@ provider "azurerm" {
       prevent_deletion_if_contains_resources = false
     }
   }
-  subscription_id = "3e3a2118-a39a-4ff7-9df7-104c3e1e611a"
+  subscription_id = "0e587ef7-4069-4a5c-ab6e-2132c83dfbf1"
   skip_provider_registration = true
   storage_use_azuread = true
 }
@@ -45,7 +45,7 @@ provider "azurerm" {
       prevent_deletion_if_contains_resources = false
     }
   }
-  subscription_id = "3e3a2118-a39a-4ff7-9df7-104c3e1e611a"
+  subscription_id = "0e587ef7-4069-4a5c-ab6e-2132c83dfbf1"
   skip_provider_registration = true
   storage_use_azuread = true
   alias = "sharedSub"
@@ -59,7 +59,7 @@ provider "azurerm" {
   }
   # skip_provider_registration = true
   storage_use_azuread = true
-  subscription_id = "3e3a2118-a39a-4ff7-9df7-104c3e1e611a"
+  subscription_id = "0e587ef7-4069-4a5c-ab6e-2132c83dfbf1"
 }
 
 provider "azurerm" {
@@ -70,5 +70,5 @@ provider "azurerm" {
     }
   }
   storage_use_azuread = true
-  subscription_id     = "3e3a2118-a39a-4ff7-9df7-104c3e1e611a"
+  subscription_id     = "0e587ef7-4069-4a5c-ab6e-2132c83dfbf1"
 }
