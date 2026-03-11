@@ -3,14 +3,14 @@ data "azurerm_client_config" "current" {}
 #needed
 module "resource_group" {
   for_each            = var.resourceGroups
-  source              = "..\\..\\terraform-modules\\resourcegroup\\v1.0"
+  source              = "..\\..\\modules-hub\\terraform-modules\\resourcegroup\\v1.0"
   location            = each.value.location
   resource_group_name = each.value.name
   tags                = each.value.tags
 }
 
 module "sharedservices_user_assigned_identity" {
-  source              = "..\\..\\terraform-modules\\userassignedidentity\\v1.0"
+  source              = "..\\..\\modules-hub\\terraform-modules\\userassignedidentity\\v1.0"
   name                = var.sharedservicesuan
   location            = var.mainLocation
   resource_group_name = var.resourceGroups["netRG"].name
@@ -18,29 +18,29 @@ module "sharedservices_user_assigned_identity" {
 }
 
 #storage account
-module "storage_account" {
-  for_each                        = var.storageAccounts
-  source                          = "..\\..\\terraform-modules\\storageaccount\\v1.0"
-  account_tier                    = each.value.account_tier
-  account_replication_type        = each.value.account_replication_type
-  resource_group_name             = each.value.resource_group_name
-  location                        = each.value.location
-  name                            = each.value.name
-  user_assigned_identity_id       = module.sharedservices_user_assigned_identity.id
-  identity_type                   = "UserAssigned"
-  identity_ids                    = [module.sharedservices_user_assigned_identity.id]
-  public_network_access_enabled   = false
-  allow_nested_items_to_be_public = false
-  shared_access_key_enabled       = each.value.shared_access_key_enabled
-  queue_encryption_key_type       = "Account"
-  table_encryption_key_type       = "Account"
-  depends_on                      = [module.resource_group, module.sharedservices_user_assigned_identity]
-}
+# module "storage_account" {
+#   for_each                        = var.storageAccounts
+#   source                          = "..\\..\\modules-hub\\terraform-modules\\storageaccount\\v1.0"
+#   account_tier                    = each.value.account_tier
+#   account_replication_type        = each.value.account_replication_type
+#   resource_group_name             = each.value.resource_group_name
+#   location                        = each.value.location
+#   name                            = each.value.name
+#   user_assigned_identity_id       = module.sharedservices_user_assigned_identity.id
+#   identity_type                   = "UserAssigned"
+#   identity_ids                    = [module.sharedservices_user_assigned_identity.id]
+#   public_network_access_enabled   = false
+#   allow_nested_items_to_be_public = false
+#   shared_access_key_enabled       = each.value.shared_access_key_enabled
+#   queue_encryption_key_type       = "Account"
+#   table_encryption_key_type       = "Account"
+#   depends_on                      = [module.resource_group, module.sharedservices_user_assigned_identity]
+# }
 
 # virtual networks
 module "sharedservices_vnet_module" {
   for_each                     = var.sharedservicesVirtualNetworks
-  source                       = "..\\..\\terraform-modules\\virtualnetwork\\v1.0"
+  source                       = "..\\..\\modules-hub\\terraform-modules\\virtualnetwork\\v1.0"
   virtual_network_name         = each.value.VirtualNetworkName
   resource_group_name          = each.value.resourceGroupName
   location                     = var.mainLocation
@@ -53,7 +53,7 @@ module "sharedservices_vnet_module" {
 # subnets
 module "sharedservices_subnet_module" {
   for_each                  = var.sharedservicesSubnets
-  source                    = "..\\..\\terraform-modules\\subnet\\v1.0"
+  source                    = "..\\..\\modules-hub\\terraform-modules\\subnet\\v1.0"
   resource_group_name       = each.value.resourceGroupName
   virtual_network_name      = each.value.vnet_name
   subnet_name               = each.value.name
